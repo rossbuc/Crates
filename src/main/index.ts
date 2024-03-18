@@ -80,7 +80,7 @@ const parseFile = async (filePath: string): Promise<void> => {
 
   try {
     const existingDataBuffer = await fsPromises.readFile(
-      "/Users/rossbuchan/personal_projects/electron-playground/data.json",
+      "/Users/rossbuchan/personal_projects/Crates/data.json",
       "utf8",
     );
 
@@ -101,7 +101,7 @@ const parseFile = async (filePath: string): Promise<void> => {
     existingData.push(formattedData);
 
     await fsPromises.writeFile(
-      "/Users/rossbuchan/personal_projects/electron-playground/data.json",
+      "/Users/rossbuchan/personal_projects/Crates/data.json",
       JSON.stringify(existingData),
       { flag: "w" },
     );
@@ -114,7 +114,7 @@ const parseFile = async (filePath: string): Promise<void> => {
 
 const loadLibrary = async (): Promise<JSON> => {
   const libData = await fsPromises.readFile(
-    "/Users/rossbuchan/personal_projects/electron-playground/data.json",
+    "/Users/rossbuchan/personal_projects/Crates/data.json",
     "utf8",
   );
   console.log(typeof libData);
