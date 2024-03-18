@@ -21,7 +21,10 @@ function App(): JSX.Element {
   return (
     <Conatainer>
       <TopContent>
-        <Sidebar></Sidebar>
+        <Sidebar>
+          <SideBarTop></SideBarTop>
+          <SideBarBottom></SideBarBottom>
+        </Sidebar>
         <MainDisplay>
           <DataDisplay library={library} />
         </MainDisplay>
@@ -46,6 +49,7 @@ const Sidebar = styled.div`
 const TopContent = styled.div`
   display: flex;
   height: 90vh;
+  gap: 0.5vw;
 `;
 
 const ControlPanel = styled.div`
@@ -54,6 +58,30 @@ const ControlPanel = styled.div`
 
 const MainDisplay = styled.div`
   width: 80vw;
+  background-color: #160033;
+  margin-top: 1vh;
+  margin-right: 0.5vw;
+  border-radius: 2.5vh;
+`;
+
+// PROBABLY GONIG TO WANT TO MAKE THESE JUST NORMAL COMPONENTS AS THEY WILL HAVE CONSISTENT FUNCTIONALITY
+const SideBarTop = styled.div`
+  margin-top: 1vh;
+  margin-bottom: 0.5vh;
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+  background-color: #160033;
+  height: calc(30% - 1vh);
+  border-radius: 2.5vh;
+`;
+
+const SideBarBottom = styled.div`
+  margin-top: 1vh;
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+  background-color: #160033;
+  height: calc(70% - 1vh);
+  border-radius: 2.5vh;
 `;
 
 export default App;
