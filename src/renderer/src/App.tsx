@@ -2,6 +2,7 @@ import React from "react";
 import DataDisplay from "./components/DataDisplay";
 import FileExplorer from "./components/FileExplorer";
 import { useEffect, useState } from "react";
+import styled from "styled-components";
 
 function App(): JSX.Element {
   const [filePath, setFilePath] = useState<string>("");
@@ -11,11 +12,6 @@ function App(): JSX.Element {
     loadLib();
   }, []);
 
-  const handleOnClick = async (): Promise<void> => {
-    const newFilePath: string = await window.api.openFile();
-    setFilePath(newFilePath);
-  };
-
   const loadLib = async (): Promise<void> => {
     const libData = await window.api.loadLib();
     console.log(Array.isArray(libData));
@@ -23,17 +19,17 @@ function App(): JSX.Element {
     setLibrary(libData);
   };
   return (
-    <>
-      <button onClick={handleOnClick}>Upload a file</button>
-      <h1>
-        the file path is <strong>{filePath}</strong>
-      </h1>
+    <Conatainer>
       <FileExplorer />
-
-      <h1>JSON Data</h1>
       <DataDisplay library={library} />
-    </>
+    </Conatainer>
   );
 }
+
+const Conatainer = styled.div`
+  background: #0a0010;
+  width: 100vw;
+  height: 100vh;
+`;
 
 export default App;

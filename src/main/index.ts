@@ -1,9 +1,10 @@
-import { app, shell, BrowserWindow, ipcMain, dialog } from "electron";
+import { app, shell, BrowserWindow, ipcMain, dialog, Menu } from "electron";
 import { join } from "path";
 import { electronApp, optimizer, is } from "@electron-toolkit/utils";
 import { stat, readdir, promises as fsPromises } from "fs";
 import { ICommonTagsResult, IPicture } from "music-metadata";
 import mm from "music-metadata";
+import mainMenu from "./helpers/applicationMenu";
 
 interface ISongData {
   songPath: string;
@@ -17,7 +18,7 @@ const handleFileOpen = async (): Promise<string | undefined> => {
   }
 };
 
-const handleFileExplorer = async (): Promise<string[] | undefined> => {
+export const handleFileExplorer = async (): Promise<string[] | undefined> => {
   const { canceled, filePaths } = await dialog.showOpenDialog({
     properties: [
       "openDirectory",
@@ -136,14 +137,19 @@ function createWindow(): void {
     },
   });
 
+  Menu.setApplicationMenu(mainMenu);
+
   mainWindow.on("ready-to-show", () => {
     mainWindow.show();
+    mainWindow.maximize();
   });
 
   mainWindow.webContents.setWindowOpenHandler((details) => {
     shell.openExternal(details.url);
     return { action: "deny" };
   });
+
+  mainWindow.webContents.openDevTools();
 
   // HMR for renderer base on electron-vite cli.
   // Load the remote URL for development or the local html file for production.
