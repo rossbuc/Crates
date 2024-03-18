@@ -20,8 +20,13 @@ function App(): JSX.Element {
   };
   return (
     <Conatainer>
-      <FileExplorer />
-      <DataDisplay library={library} />
+      <TopContent>
+        <Sidebar></Sidebar>
+        <MainDisplay>
+          <DataDisplay library={library} />
+        </MainDisplay>
+      </TopContent>
+      <ControlPanel></ControlPanel>
     </Conatainer>
   );
 }
@@ -30,6 +35,25 @@ const Conatainer = styled.div`
   background: #0a0010;
   width: 100vw;
   height: 100vh;
+`;
+
+const Sidebar = styled.div`
+  width: 20vw;
+  height: 100%;
+  flex-direction: column;
+`;
+
+const TopContent = styled.div`
+  display: flex;
+  height: 90vh;
+`;
+
+const ControlPanel = styled.div`
+  height: 10vh;
+`;
+
+const MainDisplay = styled.div`
+  width: 80vw;
 `;
 
 export default App;
