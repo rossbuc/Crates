@@ -18,6 +18,10 @@ const SongTile = ({ song, setPlayingSong }) => {
             }),
           )
         }
+        style={{
+          height: "1.5rem",
+          width: "auto",
+        }}
       ></img>
       <h2 className="song-tile--title">{song.songMetaData.title}</h2>
       {/* <h2 className="song-tile--artist">{song.songMetaData.artists[0]}</h2> */}
@@ -31,4 +35,6 @@ export default SongTile;
 const SongContainer = styled.div`
   display: flex;
   color: #ebe9f0a6;
+  justify-content: space-between;
+  gap: 1rem;
 `;

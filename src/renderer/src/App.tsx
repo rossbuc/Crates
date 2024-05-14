@@ -62,6 +62,7 @@ const MainDisplay = styled.div`
   margin-top: 1vh;
   margin-right: 0.5vw;
   border-radius: 2.5vh;
+  overflow: scroll;
 `;
 
 // PROBABLY GONIG TO WANT TO MAKE THESE JUST NORMAL COMPONENTS AS THEY WILL HAVE CONSISTENT FUNCTIONALITY
