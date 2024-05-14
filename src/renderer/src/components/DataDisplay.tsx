@@ -1,6 +1,7 @@
 import { Howl, Howler } from "howler";
 import React from "react";
 import { useEffect, useState } from "react";
+import SongTile from "./SongTile";
 
 const DataDisplay = ({ library }): JSX.Element => {
   const [playingSong, setPlayingSong] = useState(undefined);
@@ -14,19 +15,7 @@ const DataDisplay = ({ library }): JSX.Element => {
 
   const songNodes = library
     ? library.map((song, index) => (
-        <button
-          key={index}
-          onClick={() =>
-            setPlayingSong(
-              new Howl({
-                src: [song.songPath],
-                onend: setPlayingSong(undefined),
-              }),
-            )
-          }
-        >
-          {song.songMetaData.title}
-        </button>
+        <SongTile key={index} song={song} setPlayingSong={setPlayingSong} />
       ))
     : "loading";
 
