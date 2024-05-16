@@ -16,7 +16,7 @@ function App(): JSX.Element {
     try {
       const libData = await window.api.loadLib();
       console.log(Array.isArray(libData));
-      console.log("The lib data, ", libData);
+      // console.log("The lib data, ", libData);
       setLibrary(libData);
     } catch (err) {
       console.error("There was an error in fetching the lib data, ", err);
