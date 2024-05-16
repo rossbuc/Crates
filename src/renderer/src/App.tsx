@@ -13,10 +13,14 @@ function App(): JSX.Element {
   }, []);
 
   const loadLib = async (): Promise<void> => {
-    const libData = await window.api.loadLib();
-    console.log(Array.isArray(libData));
-    console.log("The lib data, ", libData);
-    setLibrary(libData);
+    try {
+      const libData = await window.api.loadLib();
+      console.log(Array.isArray(libData));
+      console.log("The lib data, ", libData);
+      setLibrary(libData);
+    } catch (err) {
+      console.error("There was an error in fetching the lib data, ", err);
+    }
   };
   return (
     <Conatainer>
