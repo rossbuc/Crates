@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 import SongTile from "./SongTile";
 
 const DataDisplay = ({ library }): JSX.Element => {
-  const [playingSong, setPlayingSong] = useState(undefined);
+  const [playingSong, setPlayingSong] = useState<undefined | Howl>(undefined);
   useEffect(() => {
     playingSong ? playingSong.play() : console.log("playing song is undefined");
   }, [playingSong]);
   console.log("The array is an array true/false, ", Array.isArray(library));
-  const handlePause: void = () => {
+  const handlePause = (): void => {
     playingSong ? playingSong.pause() : console.log("there is no song playing");
   };
 
