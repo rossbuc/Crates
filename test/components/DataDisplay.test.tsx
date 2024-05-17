@@ -13,6 +13,8 @@ console.log(library);
 describe("DataDisplay", () => {
   it("should render song data list of first 5 entries of the lib", () => {
     render(<DataDisplay library={library} />);
-    screen.debug();
+
+    const button = screen.getByRole("button");
+    expect(button).toBeInTheDocument();
   });
 });
