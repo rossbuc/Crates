@@ -6,7 +6,7 @@ import musicIcon from "/Users/rossbuchan/personal_projects/Crates/src/renderer/s
 
 const SongTile = ({ song, setPlayingSong }) => {
   return (
-    <SongContainer>
+    <SongContainer data-testid="song">
       <img
         src={musicIcon}
         alt="Clickable Image"
