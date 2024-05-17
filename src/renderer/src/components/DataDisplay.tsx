@@ -2,7 +2,6 @@ import { Howl, Howler } from "howler";
 import React from "react";
 import { useEffect, useState } from "react";
 import SongTile from "./SongTile";
-import musicIcon from "/Users/rossbuchan/personal_projects/Crates/src/renderer/src/assets/icons8-music-50.png";
 
 const DataDisplay = ({ library }): JSX.Element => {
   const [playingSong, setPlayingSong] = useState<undefined | Howl>(undefined);
